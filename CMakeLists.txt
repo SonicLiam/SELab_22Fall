@@ -3,4 +3,6 @@ project(SELab_22Fall)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(SELab_22Fall main.cpp)
+include_directories(include)
+
+add_executable(SELab_22Fall main.cpp src/input.cpp)

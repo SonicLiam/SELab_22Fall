@@ -75,8 +75,18 @@ build cmake_object_order_depends_target_SELab_22Fall: phony || CMakeFiles/SELab_
 build CMakeFiles/SELab_22Fall.dir/main.cpp.o: CXX_COMPILER__SELab_22Fall_Debug /Users/liam/Documents/GitHub/SELab_22Fall/main.cpp || cmake_object_order_depends_target_SELab_22Fall
   DEP_FILE = CMakeFiles/SELab_22Fall.dir/main.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++11
+  INCLUDES = -I/Users/liam/Documents/GitHub/SELab_22Fall/include
   OBJECT_DIR = CMakeFiles/SELab_22Fall.dir
   OBJECT_FILE_DIR = CMakeFiles/SELab_22Fall.dir
+  TARGET_COMPILE_PDB = CMakeFiles/SELab_22Fall.dir/
+  TARGET_PDB = SELab_22Fall.pdb
+
+build CMakeFiles/SELab_22Fall.dir/src/input.cpp.o: CXX_COMPILER__SELab_22Fall_Debug /Users/liam/Documents/GitHub/SELab_22Fall/src/input.cpp || cmake_object_order_depends_target_SELab_22Fall
+  DEP_FILE = CMakeFiles/SELab_22Fall.dir/src/input.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++11
+  INCLUDES = -I/Users/liam/Documents/GitHub/SELab_22Fall/include
+  OBJECT_DIR = CMakeFiles/SELab_22Fall.dir
+  OBJECT_FILE_DIR = CMakeFiles/SELab_22Fall.dir/src
   TARGET_COMPILE_PDB = CMakeFiles/SELab_22Fall.dir/
   TARGET_PDB = SELab_22Fall.pdb
 
@@ -88,7 +98,7 @@ build CMakeFiles/SELab_22Fall.dir/main.cpp.o: CXX_COMPILER__SELab_22Fall_Debug /
 #############################################
 # Link the executable SELab_22Fall
 
-build SELab_22Fall: CXX_EXECUTABLE_LINKER__SELab_22Fall_Debug CMakeFiles/SELab_22Fall.dir/main.cpp.o
+build SELab_22Fall: CXX_EXECUTABLE_LINKER__SELab_22Fall_Debug CMakeFiles/SELab_22Fall.dir/main.cpp.o CMakeFiles/SELab_22Fall.dir/src/input.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
   OBJECT_DIR = CMakeFiles/SELab_22Fall.dir
   POST_BUILD = :
