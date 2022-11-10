@@ -39,12 +39,30 @@ ProgramDir::ProgramDir(string Dir, string DirName) {
                 formatNum++;
                 formatFile = fileName;
             }
-            fileNames.push_back(fileName);
+            else{
+                fileNames.push_back(fileName);
+            }
         }
     }
     programNum = fileNum - formatNum;
     assert(programNum > 0 && formatNum == 1);
     closedir(dirp);
+}
+
+string ProgramDir::getDir() const {
+    return dir;
+}
+
+vector<string> ProgramDir::getFileNames() const {
+    return fileNames;
+}
+
+string ProgramDir::getFormatFile() const {
+    return formatFile;
+}
+
+int ProgramDir::getProgramNum() const {
+    return programNum;
 }
 
 InputDir::InputDir(char *Dir) {
@@ -72,4 +90,8 @@ InputDir::InputDir(char *Dir) {
     }
     assert(dirNum > 0);
     closedir(dirp);
+}
+
+vector<ProgramDir> InputDir::getProgramDirs() const {
+    return programDirs;
 }
