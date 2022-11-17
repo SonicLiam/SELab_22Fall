@@ -1,3 +1,0 @@
-/Users/liam/Documents/GitHub/SELab_22Fall/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/liam/Documents/GitHub/SELab_22Fall/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/liam/Documents/GitHub/SELab_22Fall/cmake-build-debug/CMakeFiles/SELab_22Fall.dir

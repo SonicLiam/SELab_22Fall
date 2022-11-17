@@ -1,5 +1,8 @@
 #include <iostream>
 #include "include/input.h"
+#include "include/execute.h"
+
+#define EXECUTE_TIMES 3
 int main(int argc, char *argv[]) {
     if(argc != 2){
         std::cout << "Usage: " << argv[0] << " <input path>" << std::endl;
@@ -20,5 +23,12 @@ int main(int argc, char *argv[]) {
         std::cout << "Got format file:" << std::endl;
         std::cout << programDir.getFormatFile() << std::endl;
     }
+    //Execute the programs
+    for(auto &programDir : programDirs){
+        Execute execute(&programDir);
+        execute.execute(EXECUTE_TIMES);
+    }
+    std::cout << "Executing completed. " << EXECUTE_TIMES << " times for each program." << std::endl;
+
 
 }
