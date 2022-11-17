@@ -39,7 +39,9 @@ void Execute::execute(int m) {
         }
         programInputs.push_back(programInput1);
     }
-    string command = "mkdir -p " + programDir->getDir() + "/result";
+    string command = "rm -rf " + programDir->getDir() + "/result";
+    system(command.c_str());
+    command = "mkdir -p " + programDir->getDir() + "/result";
     system(command.c_str());
     for(int i = 0; i < m; i++){
         command = "mkdir -p " + programDir->getDir() + "/result/" + to_string(i);
