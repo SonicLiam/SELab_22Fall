@@ -1,7 +1,7 @@
 #include <iostream>
 #include "include/input.h"
 #include "include/execute.h"
-
+#include "include/judge.h"
 #define EXECUTE_TIMES 3
 int main(int argc, char *argv[]) {
     if(argc != 2){
@@ -23,6 +23,7 @@ int main(int argc, char *argv[]) {
         std::cout << "Got format file:" << std::endl;
         std::cout << programDir.getFormatFile() << std::endl;
     }
+
     //Execute the programs
     for(auto &programDir : programDirs){
         Execute execute(&programDir);
@@ -30,5 +31,11 @@ int main(int argc, char *argv[]) {
     }
     std::cout << "Executing completed. " << EXECUTE_TIMES << " times for each program." << std::endl;
 
+    //Judge the programs
+    Judge judge(&inputDir, EXECUTE_TIMES);
+    judge.judge();
+    auto judgeResults = judge.getJudgeResults();
+    std::cout << "Judge completed. " << std::endl;
 
+    //Output the judge result
 }

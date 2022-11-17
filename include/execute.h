@@ -24,7 +24,7 @@ private:
     map<string, string> result;
     string generateRandomInput(int argNum, vector<programInput> programInputs);
 public:
-    Execute(ProgramDir* programDir);
+    explicit Execute(ProgramDir* programDir);
     void execute(int m);
 };
 
