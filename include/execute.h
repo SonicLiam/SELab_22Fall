@@ -25,7 +25,7 @@ private:
     string generateRandomInput(int argNum, vector<programInput> programInputs);
 public:
     Execute(ProgramDir* programDir);
-    void execute();
+    void execute(int m);
 };
 
 #endif //SELAB_22FALL_EXECUTE_H

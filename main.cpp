@@ -24,6 +24,6 @@ int main(int argc, char *argv[]) {
 
     for(auto &programDir : programDirs){
         Execute execute(&programDir);
-        execute.execute();
+        execute.execute(3);
     }
 }

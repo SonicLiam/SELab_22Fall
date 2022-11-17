@@ -9,7 +9,7 @@ Execute::Execute(ProgramDir* programDir) {
     this->programDir = programDir;
 }
 
-void Execute::execute() {
+void Execute::execute(int m) {
     auto fileNames = programDir->getFileNames();
     auto formatFile = programDir->getFormatFile();
     ifstream format(formatFile);
@@ -41,20 +41,38 @@ void Execute::execute() {
     }
     string command = "mkdir -p " + programDir->getDir() + "/result";
     system(command.c_str());
-    for(auto &fileName : fileNames){
-        string input = generateRandomInput(argNum, programInputs);
-        string command = "gcc " + fileName + " -o " + fileName.substr(0, fileName.find(".cpp")) + ".out";
+    for(int i = 0; i < m; i++){
+        command = "mkdir -p " + programDir->getDir() + "/result/" + to_string(i);
         system(command.c_str());
-        cout << command << endl;
-        command = fileName.substr(0, fileName.find(".cpp")) + ".out " + input + " > " + programDir->getDir() + "/result/" + fileName.substr(fileName.find_last_of("/") + 1, fileName.find(".cpp") - fileName.find_last_of("/") - 1) + ".txt";
-        system(command.c_str());
-        cout << command << endl;
-        ifstream out(fileName.substr(0, fileName.find(".cpp")) + ".out");
-        string output;
-        getline(out, output);
-        cout << output << endl;
-        result[fileName] = output;
     }
+    for(int i = 0; i < m; i++) {
+        string input = generateRandomInput(argNum, programInputs);
+        string input_file = programDir->getDir() + "/result/input" + to_string(i) + ".txt";
+        for(auto &fileName : fileNames){
+            ofstream inf(input_file);
+            inf << input;
+            inf.close();
+            string command = "g++ " + fileName + " -o " + fileName.substr(0, fileName.find_last_of(".")) + ".out";
+            system(command.c_str());
+            cout << "Executing: " << command << endl;
+            command =
+                    fileName.substr(0, fileName.find(".cpp")) + ".out < " + input_file + " > " + programDir->getDir() +
+                    "/result/" + to_string(i) + "/" + fileName.substr(fileName.find_last_of("/") + 1,
+                                                 fileName.find(".cpp") - fileName.find_last_of("/") - 1) + ".txt";
+            system(command.c_str());
+            cout << "Executing: " << command << endl;
+            ifstream out(fileName.substr(0, fileName.find(".cpp")) + ".out");
+            string output;
+            getline(out, output);
+            result[fileName] = output;
+        }
+    }
+    command = "rm -rf " + programDir->getDir() + "/*.out";
+    system(command.c_str());
+    cout << "Executing: " << command << endl;
+    command = "rm -rf " + programDir->getDir() + "/result/input*.txt";
+    system(command.c_str());
+    cout << "Executing: " << command << endl;
 }
 
 string Execute::generateRandomInput(int argNum, vector <programInput> programInputs) {
