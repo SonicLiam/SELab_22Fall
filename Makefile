@@ -231,6 +231,33 @@ src/judge.cpp.s:
 	$(MAKE) -f CMakeFiles/SELab_22Fall.dir/build.make CMakeFiles/SELab_22Fall.dir/src/judge.cpp.s
 .PHONY : src/judge.cpp.s
 
+src/output.o: src/output.cpp.o
+
+.PHONY : src/output.o
+
+# target to build an object file
+src/output.cpp.o:
+	$(MAKE) -f CMakeFiles/SELab_22Fall.dir/build.make CMakeFiles/SELab_22Fall.dir/src/output.cpp.o
+.PHONY : src/output.cpp.o
+
+src/output.i: src/output.cpp.i
+
+.PHONY : src/output.i
+
+# target to preprocess a source file
+src/output.cpp.i:
+	$(MAKE) -f CMakeFiles/SELab_22Fall.dir/build.make CMakeFiles/SELab_22Fall.dir/src/output.cpp.i
+.PHONY : src/output.cpp.i
+
+src/output.s: src/output.cpp.s
+
+.PHONY : src/output.s
+
+# target to generate assembly for a file
+src/output.cpp.s:
+	$(MAKE) -f CMakeFiles/SELab_22Fall.dir/build.make CMakeFiles/SELab_22Fall.dir/src/output.cpp.s
+.PHONY : src/output.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -252,6 +279,9 @@ help:
 	@echo "... src/judge.o"
 	@echo "... src/judge.i"
 	@echo "... src/judge.s"
+	@echo "... src/output.o"
+	@echo "... src/output.i"
+	@echo "... src/output.s"
 .PHONY : help
 
 

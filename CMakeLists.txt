@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 11)
 
 include_directories(include)
 
-add_executable(SELab_22Fall main.cpp src/input.cpp src/execute.cpp src/judge.cpp)
+add_executable(SELab_22Fall main.cpp src/input.cpp src/execute.cpp src/judge.cpp src/output.cpp)

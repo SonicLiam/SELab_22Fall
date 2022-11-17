@@ -2,6 +2,7 @@
 #include "include/input.h"
 #include "include/execute.h"
 #include "include/judge.h"
+#include "include/output.h"
 #define EXECUTE_TIMES 3
 int main(int argc, char *argv[]) {
     if(argc != 2){
@@ -38,4 +39,7 @@ int main(int argc, char *argv[]) {
     std::cout << "Judge completed. " << std::endl;
 
     //Output the judge result
+    Output output(&judge);
+    output.output();
+
 }
