@@ -9,6 +9,8 @@
 #include <cstdlib>
 #include<fstream>
 #include<string>
+#include <cstring>
+#include <cassert>
 #include <utility>
 
 using namespace std;
@@ -37,10 +39,10 @@ ProgramDir::ProgramDir(string Dir, string DirName) {
             string fileName = direntp->d_name;
             if (fileName.find(".txt") != string::npos) {
                 formatNum++;
-                formatFile = fileName;
+                formatFile = d;
             }
             else{
-                fileNames.push_back(fileName);
+                fileNames.push_back(d);
             }
         }
     }
@@ -85,7 +87,7 @@ InputDir::InputDir(char *Dir) {
         }
         if (S_ISDIR(stat_buf.st_mode)) {
             dirNum++;
-            programDirs.emplace_back(ProgramDir(d, direntp->d_name));
+            programDirs.emplace_back(ProgramDir(d, d));
         }
     }
     assert(dirNum > 0);
